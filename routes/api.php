@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::middleware(['auth:api'])->group(function(){
+//     Route::resource('/products', ProductController::class);
+// });
+
+// Route::resource('/cruds', 'ProductController', [
+//   'except' => ['edit', 'show', 'store']
+// ]);
+
+// Route::resource('/products', 'ProductController');
+//Route::resource('/products', [App\Http\Controllers\ProductController::class]);
+
+Route::resource('/products', ProductController::class);
+
+// Auth::routes();
+
